@@ -1742,6 +1742,16 @@
 				padding: 4em 2em 3em 2em;
 			}
 
+			.box.feature .inner .end-date {
+				font-weight: bold;
+				text-align: center;
+			}
+
+			.box.feature .inner a {
+				text-align: center;
+				width: 100%;
+			}
+
 			.box.feature h2 {
 				font-size: 1.35em;
 			}
