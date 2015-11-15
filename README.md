@@ -1,8 +1,8 @@
 Shirts of the ElePHPant
 =====================
 
-This is n aggregator of PHP related shirts.
-Its just a sculpin static website to help us have a single place to advertise all shirt being printed or available to buy now.
+This is an aggregator of PHP related shirts.
+It's just a sculpin static website to help us have a single place to advertise all shirt being printed or available to buy now.
 
 ## Features
 
