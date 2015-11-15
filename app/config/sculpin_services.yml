@@ -1,0 +1,6 @@
+services:
+    sculpin_content_types.types.shirts.collection.sorter:
+        class: Sculpin\Contrib\ProxySourceCollection\Sorter\MetaSorter
+        arguments:
+            - available
+            - 'asc'

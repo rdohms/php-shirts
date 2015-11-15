@@ -6,28 +6,52 @@ pagination:
     max_per_page: 3
 use:
     - posts
+    - shirts
 ---
-{% for post in page.pagination.items %}
-    <article>
-        <header>
-            <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-        </header>
-        <div>
-            {{ post.blocks.content|raw }}
-        </div>
-        {% if post.meta.tags %}
-            <p class="tags">
-            Tags:
-            {% for tag in post.meta.tags %}
-            <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+
+<div id="features-wrapper">
+    <div class="container">
+
+    {% for row in data.shirts|batch(3) %}
+        <div class="row">
+
+            {% for shirt in row %}
+                <div class="4u 12u(medium)">
+
+                    <!-- Box -->
+                    <section class="box feature">
+                        <a href="#" class="image featured">
+                            <img src="images/shirts/{{ shirt.stub }}.png" alt="" />
+                        </a>
+                        <div class="inner">
+                            <header>
+                                <h2>{{ shirt.title }}</h2>
+                                <p>{{ shirt.subtitle }}</p>
+                            </header>
+
+                            {{ shirt.blocks.content|raw }}
+
+                            <div class="actions">
+                                {% if shirt.campaigns is not empty %}
+                                    {% for campaign in shirt.campaigns %}
+                                        <a href="{{ campaign.link }}" class="button icon fa-{{ campaign.region == 'US'? 'usd':'eur' }}">Buy now! ({{ campaign.region|upper }})</a>
+                                        <p class="end-date">available until {{ campaign.end_date|date('d/M') }}</p>
+                                    {% endfor %}
+                                {% else %}
+                                    {% if shirt.mailing_list is not empty %}
+                                    <a href="{{ shirt.mailing_list|default('#') }}" class="button alt icon fa-clock-o">Track this!</a>
+                                    <p class="end-date">signup for alerts</p>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </section>
+
+                </div>
             {% endfor %}
-            </p>
-        {% endif %}
-    </article>
-{% endfor %}
-{% if page.pagination.previous_page or page.pagination.next_page %}
-    <nav>
-        {% if page.pagination.previous_page %}<a href="{{ site.url }}{{ page.pagination.previous_page.url }}">Newer Posts</a>{% endif %}<br />
-        {% if page.pagination.next_page %}<a href="{{ site.url }}{{ page.pagination.next_page.url }}">Older Posts</a>{% endif %}<br />
-    </nav>
-{% endif %}
+
+        </div>
+    {% endfor %}
+    </div>
+</div>

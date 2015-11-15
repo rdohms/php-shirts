@@ -1,120 +1,121 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>{% block title %}{{ page.title }}{% endblock %} &mdash; {{ site.title }} &mdash; {{ site.subtitle }}</title>
-        <meta charset="utf-8">
-        <meta name="theme-color" content="#ffffff">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<title>{% block title %}{{ page.title }}{% endblock %} &mdash; {{ site.title }} &mdash; {{ site.subtitle }}</title>
         {% block head_meta %}
             <meta name="robots" content="noindex, follow">
         {% endblock %}
-        <link href="{{ site.url }}/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="{{ site.url }}/components/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-        <link href="{{ site.url }}/css/style.css" rel="stylesheet" type="text/css" />
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-
-        <link rel="apple-touch-startup-image" href="{{ site.url }}/images/jackson/2048x2048.png">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="shortcut icon" sizes="76x76" href="{{ site.url }}/images/jackson/76x76.png">
-        <link rel="shortcut icon" sizes="120x120" href="{{ site.url }}/images/jackson/120x120.png">
-        <link rel="shortcut icon" sizes="128x128" href="{{ site.url }}/images/jackson/128x128.png">
-        <link rel="shortcut icon" sizes="152x152" href="{{ site.url }}/images/jackson/152x152.png">
-        <link rel="shortcut icon" sizes="196x196" href="{{ site.url }}/images/jackson/196x196.png">
-        <link rel="shortcut icon" sizes="512x512" href="{{ site.url }}/images/jackson/512x512.png">
-        <link rel="shortcut icon" sizes="1024x1024" href="{{ site.url }}/images/jackson/1024x1024.png">
-        <link rel="shortcut icon" sizes="2048x2048" href="{{ site.url }}/images/jackson/2048x2048.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ site.url }}/images/jackson/76x76.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="{{ site.url }}/images/jackson/120x120.png">
-        <link rel="apple-touch-icon" sizes="128x128" href="{{ site.url }}/images/jackson/128x128.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="{{ site.url }}/images/jackson/152x152.png">
-        <link rel="apple-touch-icon" sizes="196x196" href="{{ site.url }}/images/jackson/196x196.png">
-        <link rel="apple-touch-icon" sizes="512x512" href="{{ site.url }}/images/jackson/512x512.png">
-        <link rel="apple-touch-icon" sizes="1024x1024" href="{{ site.url }}/images/jackson/1024x1024.png">
-        <link rel="apple-touch-icon" sizes="2048x2048" href="{{ site.url }}/images/jackson/2048x2048.png">
-
-        <link rel="stylesheet" href="{{ site.url }}/components/highlightjs/styles/github.css" />
-        <link rel="alternate" type="application/atom+xml" href="{{ site.url }}/atom.xml" title="{{ site.title }} activity feed" />
-        <style>
-        /** quick fix because bootstrap <pre> has a background-color. */
-        pre code { background-color: inherit; }
-        </style>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{{ site.url }}/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{{ site.url }}/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{{ site.url }}/css/ie8.css" /><![endif]-->
         {% block head_styles %}
         {% endblock %}
         {% block head_scripts %}
         {% endblock %}
-    </head>
-    <body>
-        <header>
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="navbar-inner">
-                    <div class="container-fluid">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
-                        <a class="brand" href="{{ site.url }}/">{{ site.title }}</a>
-                        <div class="nav-collapse collapse">
-                            <ul class="nav">
-                                <li><a href="{{ site.url }}/blog">Posts Archive</a></li>
-                                <li><a href="{{ site.url }}/blog/categories">Categories</a></li>
-                                <li><a href="{{ site.url }}/blog/tags">Tags</a></li>
-                                <li><a href="{{ site.url }}/about">About</a></li>
-                            </ul>
-                        </div><!--/.nav-collapse -->
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="mainContent container">
-            <div class="row-fluid">
-                <div class="span8">
-                    {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
-                </div>
-                <div class="span4 sidebar">
-                    <div class="well">
-                        <h4>{{ site.title }}{% if site.subtitle %} <small>{{ site.subtitle }}</small>{% endif %}</h4>
-                    </div>
-                    <div class="well sidebar-nav">
-                        <h4>Links</h4>
-                        <ul class="nav">
-                            <li><a href="http://sculpin.io">sculpin.io</a></li>
-                            <li><a href="http://twitter.com/getsculpin">@getsculpin</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer class="container">
-            &copy; {{ "now"|date("Y") }} {{ site.title }}
-        </footer>
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{ site.url }}/components/jquery/jquery.min.js"><\/script>')</script>
-        <script src="{{ site.url }}/components/bootstrap/js/bootstrap.min.js"></script>
-        {% block scripts %}
-        {% endblock %}
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
 
-        {% if site.google_analytics_tracking_id %}
+						<!-- Logo -->
+							<div id="logo">
+								<img src="images/logo.png" alt="">
+							</div>
 
-        <script type="text/javascript">
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current"><a href="index.html">Home</a></li>
 
-            ga('create', '{{site.google_analytics_tracking_id}}', 'auto');
-            ga('send', 'pageview');
-        </script>
-        {% endif %}
-        <script src="{{ site.url }}/components/highlightjs/highlight.pack.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+								</ul>
+							</nav>
 
-        {% block scripts_after %}
-        {% endblock %}
-    </body>
+					</header>
+				</div>
+
+			<!-- Features -->
+            {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
+
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="9u 9u(medium) 12u$(small)">
+                                <!-- Links -->
+                                    <section class="widget links">
+                                        <h3>About</h3>
+                                        <p>What are the elegant elePHPants wearing?<br>
+                                        We also want to know and this is where we want to showcase all those options. So if you are looking for shirts, you have found them. If you see one missing, add it! <a href="http://github.com/rdohms/php-shirts">Send a PR to our repo</a></p>
+                                    </section>
+							</div>
+							<div class="3u 3u$(medium) 12u$(small)">
+
+								<!-- Contact -->
+									<section class="widget contact last">
+										<h3>Contact Us</h3>
+										<ul>
+											<li>
+												<a href="http://twitter.com/shirtsofphp" class="icon fa-twitter">
+													<span class="label">Twitter</span>
+												</a>
+											</li>
+											<li>
+												<a href="http://github.com/rdohms/php-shirts" class="icon fa-github">
+													<span class="label">Twitter</span>
+												</a>
+											</li>
+										</ul>
+									</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<div id="copyright">
+									<ul class="menu">
+										<li>Created with <i class="fa fa-heart red"></i> by <a href="htpp://doh.ms">Rafael Dohms</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a> with icons by Pham Thi Dieu Linh and Samy Menai</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+
+			<script src="{{ site.url }}/js/jquery.min.js"></script>
+			<script src="{{ site.url }}/js/jquery.dropotron.min.js"></script>
+			<script src="{{ site.url }}/js/skel.min.js"></script>
+			<script src="{{ site.url }}/js/util.js"></script>
+			<!--[if lte IE 8]><script src="{{ site.url }}/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{{ site.url }}/js/main.js"></script>
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            {% block scripts %}
+            {% endblock %}
+
+            {% if site.google_analytics_tracking_id %}
+
+            <script type="text/javascript">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', '{{site.google_analytics_tracking_id}}', 'auto');
+                ga('send', 'pageview');
+            </script>
+            {% endif %}
+
+            {% block scripts_after %}
+            {% endblock %}
+	</body>
 </html>

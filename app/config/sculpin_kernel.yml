@@ -1,3 +1,8 @@
 sculpin_content_types:
     posts:
         permalink: blog/:year/:month/:day/:filename/
+    shirts:
+        permalink: shirt/:shortname
+        singular_name: shirt
+        path: _shirts
+        layout: default
